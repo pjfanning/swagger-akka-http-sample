@@ -1,7 +1,5 @@
 package com.example.akka
 
-import scala.util.control.NonFatal
-import akka.actor.{Actor, ActorLogging, Props}
 import akka.http.scaladsl.server.RouteConcatenation
 import com.example.akka.add.AddService
 import com.example.akka.hello.HelloService

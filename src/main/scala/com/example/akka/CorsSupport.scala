@@ -3,12 +3,11 @@ package com.example.akka
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model.HttpResponse
 import akka.http.scaladsl.model.headers._
+import akka.http.scaladsl.server.Directive.addByNameNullaryApply
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{Directive0, Route}
-import com.typesafe.config.ConfigFactory
 import akka.http.scaladsl.marshalling.ToResponseMarshallable.apply
 import akka.http.scaladsl.model.StatusCode.int2StatusCode
-import akka.http.scaladsl.server.Directive.addByNameNullaryApply
 
 //see https://groups.google.com/forum/#!topic/akka-user/5RCZIJt7jHo
 trait CorsSupport {

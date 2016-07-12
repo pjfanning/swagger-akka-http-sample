@@ -4,8 +4,7 @@ import java.util.UUID
 import scala.reflect.ClassTag
 import spray.json._
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import akka.http.scaladsl.model.HttpEntity
-import akka.http.scaladsl.model.StatusCode
+import akka.http.scaladsl.model.{HttpEntity, StatusCode}
 import akka.http.scaladsl.marshalling.Marshaller
 
 /**
