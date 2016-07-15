@@ -10,7 +10,8 @@ import akka.http.scaladsl.server.Directives
 import io.swagger.annotations._
 import javax.ws.rs.Path
 
-@Api(value = "/hello", description = "Hello Template.", produces = "application/json")
+@Api(value = "/hello", description = "Hello Template.", produces = "application/json",
+    authorizations=Array(new Authorization(value="basicAuth")))
 @Path("/hello")
 class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
