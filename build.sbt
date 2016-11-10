@@ -2,13 +2,11 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.11.8"
 
-resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
-
-resolvers += "Maven" at "https://repo1.maven.org/maven2/"
-
-resolvers += Resolver.mavenLocal
+resolvers += Resolver.sonatypeRepo("public")
+resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers += DefaultMavenRepository 
 
 libraryDependencies ++= Seq(
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.7.3-SNAPSHOT",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.7.3",
   "org.slf4j" % "slf4j-simple" % "1.7.14"
 )
