@@ -7,6 +7,6 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 resolvers += DefaultMavenRepository 
 
 libraryDependencies ++= Seq(
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.8.0-SNAPSHOT",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.8.0",
   "org.slf4j" % "slf4j-simple" % "1.7.14"
 )
