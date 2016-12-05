@@ -17,8 +17,8 @@ trait Api extends RouteConcatenation with CorsSupport {
   private implicit val _ = system.dispatcher
 
   val routes =
-    new AddService(add).route ~
+    corsHandler(new AddService(add).route ~
     new HelloService(hello).route ~
-    corsHandler(new SwaggerDocService(system).routes)
+    new SwaggerDocService(system).routes)
 
 }
