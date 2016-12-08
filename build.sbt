@@ -12,5 +12,6 @@ libraryDependencies ++= Seq(
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.8.1-SNAPSHOT",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
+  "ch.megard" %% "akka-http-cors" % "0.1.10",
   "org.slf4j" % "slf4j-simple" % "1.7.14"
 )
