@@ -6,12 +6,16 @@ resolvers += Resolver.sonatypeRepo("public")
 resolvers += Resolver.sonatypeRepo("snapshots")
 resolvers += DefaultMavenRepository
 
-val akkaHttpVersion = "10.0.0"
+val akkaHttpVersion = "2.4.11"
 
 libraryDependencies ++= Seq(
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.8.1",
-  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
-  "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
-  "ch.megard" %% "akka-http-cors" % "0.1.10",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.8.1" excludeAll(
+    ExclusionRule(organization = "com.typesafe.akka")
+  ),
+  "ch.megard" %% "akka-http-cors" % "0.1.10" excludeAll(
+    ExclusionRule(organization = "com.typesafe.akka")
+  ),
+  "com.typesafe.akka" %% "akka-http-experimental" % akkaHttpVersion,
+  "com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaHttpVersion,
   "org.slf4j" % "slf4j-simple" % "1.7.14"
 )
