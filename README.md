@@ -8,6 +8,3 @@ Test using http://petstore.swagger.io/ and replace the swagger.json with http://
 
 The Swagger UI can be used to send sample requests.
 
-## Scala 2.12
-
-There is a Scala 2.12 branch. It uses a 0.9.0-SNAPSHOT version of swagger-akka-http.
