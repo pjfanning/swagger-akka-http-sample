@@ -2,14 +2,13 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.12.1"
 
-resolvers += Resolver.sonatypeRepo("public")
+resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
-resolvers += DefaultMavenRepository
 
-val akkaHttpVersion = "10.0.0"
+val akkaHttpVersion = "10.0.1"
 
 libraryDependencies ++= Seq(
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.9.0",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.9.1",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "ch.megard" %% "akka-http-cors" % "0.1.10",
