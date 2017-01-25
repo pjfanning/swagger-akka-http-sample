@@ -5,7 +5,7 @@ scalaVersion := "2.12.1"
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaHttpVersion = "10.0.1"
+val akkaHttpVersion = "10.0.2"
 
 libraryDependencies ++= Seq(
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.9.1",
