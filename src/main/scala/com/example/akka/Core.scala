@@ -23,12 +23,12 @@ trait BootedCore extends Core {
   /**
    * Construct the ActorSystem we will use in our application
    */
-  implicit lazy val system = ActorSystem("akka-spray")
+  override lazy val system = ActorSystem("akka-http-sample")
 
   /**
    * Ensure that the constructed ActorSystem is shut down when the JVM shuts down
    */
-  sys.addShutdownHook(system.shutdown())
+  sys.addShutdownHook(system.terminate())
 
 }
 

@@ -25,11 +25,11 @@ class AddService(addActor: ActorRef)(implicit executionContext: ExecutionContext
   implicit val responseFormat = jsonFormat1(AddResponse)
 
   val route = add
-    
+
   @ApiOperation(value = "Add integers", notes = "", nickname = "addIntegers", httpMethod = "POST")
   @ApiImplicitParams(Array(
     new ApiImplicitParam(name = "body", value = "\"numbers\" to sum", required = true,
-        dataType = "com.example.akka.add.AddActor$AddRequest", paramType = "body")
+        dataTypeClass = classOf[AddRequest], paramType = "body")
   ))
   @ApiResponses(Array(
     new ApiResponse(code = 200, message = "Return sum", response = classOf[AddResponse]),
@@ -42,7 +42,6 @@ class AddService(addActor: ActorRef)(implicit executionContext: ExecutionContext
           complete { (addActor ? request).mapTo[AddResponse] }
         }
       }
-    } 
+    }
 
 }
-
