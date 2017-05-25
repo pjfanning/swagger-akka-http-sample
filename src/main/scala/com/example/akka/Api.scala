@@ -1,7 +1,7 @@
 package com.example.akka
 
 import akka.http.scaladsl.server.RouteConcatenation
-import ch.megard.akka.http.cors.CorsDirectives._
+import ch.megard.akka.http.cors.scaladsl.CorsDirectives.cors
 import com.example.akka.add.AddService
 import com.example.akka.hello.HelloService
 import com.example.akka.swagger.SwaggerDocService
