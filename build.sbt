@@ -15,6 +15,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
+  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "ch.megard" %% "akka-http-cors" % "0.2.1",
   "org.slf4j" % "slf4j-simple" % "1.7.14"
 )
