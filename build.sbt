@@ -10,7 +10,7 @@ val akkaHttpVersion = "10.0.9"
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.5.15",
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.9.2",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.10.0-SNAPSHOT",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,

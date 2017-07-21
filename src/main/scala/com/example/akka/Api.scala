@@ -20,6 +20,6 @@ trait Api extends RouteConcatenation {
   val routes =
     cors() (new AddService(add).route ~
     new HelloService(hello).route ~
-    new SwaggerDocService(system).routes)
+    SwaggerDocService.routes)
 
 }
