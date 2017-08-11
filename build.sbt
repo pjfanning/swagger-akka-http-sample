@@ -5,7 +5,7 @@ scalaVersion := "2.12.3"
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaVersion = "2.5.3"
+val akkaVersion = "2.5.4"
 val akkaHttpVersion = "10.0.9"
 
 libraryDependencies ++= Seq(
