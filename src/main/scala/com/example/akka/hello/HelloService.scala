@@ -1,35 +1,33 @@
 package com.example.akka.hello
 
-import scala.concurrent.{ExecutionContext, Future}
-import com.example.akka.DefaultJsonFormats
-import HelloActor._
-import akka.actor.ActorRef
-import akka.util.Timeout
-import akka.http.scaladsl.model.Uri.Path.Segment
-import akka.http.scaladsl.server.Directives
-import io.swagger.annotations._
 import javax.ws.rs.Path
 
-@Api(value = "/hello", description = "Hello Template.", produces = "application/json")
+import scala.concurrent.ExecutionContext
+import scala.concurrent.duration._
+
+import akka.actor.ActorRef
+import akka.http.scaladsl.server.Directives
+import akka.pattern.ask
+import akka.util.Timeout
+import io.swagger.annotations._
+
+import com.example.akka.DefaultJsonFormats
+import com.example.akka.hello.HelloActor._
+
+@Api(value = "/hello", produces = "application/json")
 @Path("/hello")
 class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
 
-  import akka.pattern.ask
-  import scala.concurrent.duration._
-
   implicit val timeout = Timeout(2.seconds)
-
-  import spray.json.DefaultJsonProtocol._
   implicit val greetingFormat = jsonFormat1(Greeting)
 
   val route =
     getHello ~
     getHelloSegment
     
-  @ApiOperation(value = "Return Hello greeting", notes = "", nickname = "anonymousHello", httpMethod = "GET")
+  @ApiOperation(value = "Return Hello greeting", nickname = "anonymousHello", httpMethod = "GET", response = classOf[Greeting])
   @ApiResponses(Array(
-    new ApiResponse(code = 200, message = "Return Hello Greeting", response = classOf[Greeting]),
     new ApiResponse(code = 500, message = "Internal server error")
   ))
   def getHello =
