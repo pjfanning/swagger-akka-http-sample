@@ -2,18 +2,19 @@ package com.example.akka.add
 
 import javax.ws.rs.{POST, Path}
 
-import scala.concurrent.ExecutionContext
-import scala.concurrent.duration._
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
 import akka.pattern.ask
 import akka.util.Timeout
 import com.example.akka.DefaultJsonFormats
 import com.example.akka.add.AddActor._
-import io.swagger.oas.annotations.Operation
-import io.swagger.oas.annotations.media.{Content, Schema}
-import io.swagger.oas.annotations.parameters.RequestBody
-import io.swagger.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.{Content, Schema}
+import io.swagger.v3.oas.annotations.parameters.RequestBody
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+
+import scala.concurrent.ExecutionContext
+import scala.concurrent.duration._
 
 @Path("/add")
 class AddService(addActor: ActorRef)(implicit executionContext: ExecutionContext)
@@ -31,7 +32,7 @@ class AddService(addActor: ActorRef)(implicit executionContext: ExecutionContext
     requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[AddRequest])))),
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Add response",
-        content = new Content(schema = new Schema(implementation = classOf[AddResponse]))),
+        content = Array(new Content(schema = new Schema(implementation = classOf[AddResponse])))),
       new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
   def add =

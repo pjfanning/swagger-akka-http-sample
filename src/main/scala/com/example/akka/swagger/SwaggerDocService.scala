@@ -4,7 +4,7 @@ import com.github.swagger.akka.SwaggerHttpService
 import com.github.swagger.akka.model.Info
 import com.example.akka.add.AddService
 import com.example.akka.hello.HelloService
-import io.swagger.oas.models.ExternalDocumentation
+import io.swagger.v3.oas.models.ExternalDocumentation
 
 object SwaggerDocService extends SwaggerHttpService {
   override val apiClasses = Set(classOf[AddService], classOf[HelloService])
