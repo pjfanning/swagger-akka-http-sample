@@ -6,11 +6,11 @@ resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
 val akkaVersion = "2.5.11"
-val akkaHttpVersion = "10.1.0-RC2"
+val akkaHttpVersion = "10.1.0"
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.5.18",
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.13.0",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.14.0-SNAPSHOT",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
