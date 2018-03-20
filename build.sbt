@@ -1,6 +1,6 @@
 name := "swagger-akka-http-sample"
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.5"
 
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
@@ -10,7 +10,7 @@ val akkaHttpVersion = "10.1.0"
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.5.18",
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.14.0-SNAPSHOT",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "0.14.0",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
