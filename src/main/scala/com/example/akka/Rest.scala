@@ -6,6 +6,7 @@ import akka.http.scaladsl.server.RouteConcatenation
 import akka.stream.ActorMaterializer
 import ch.megard.akka.http.cors.scaladsl.CorsDirectives.cors
 import com.example.akka.add.{AddActor, AddService}
+import com.example.akka.echoenum.EchoEnumService
 import com.example.akka.hello.{HelloActor, HelloService}
 import com.example.akka.swagger.SwaggerDocService
 
@@ -21,6 +22,7 @@ object Rest extends App with RouteConcatenation {
   val routes =
     cors() (new AddService(add).route ~
       new HelloService(hello).route ~
+      EchoEnumService.route ~
       SwaggerDocService.routes)
   Http().bindAndHandle(routes, "0.0.0.0", 12345)
 }
