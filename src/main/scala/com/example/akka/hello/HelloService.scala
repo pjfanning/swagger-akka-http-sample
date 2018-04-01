@@ -30,7 +30,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
   @GET
   @Operation(summary = "Return Hello greeting (anonymous)", description = "Return Hello greeting for anonymous request",
     responses = Array(
-      new ApiResponse(responseCode = "200", description = "Add response",
+      new ApiResponse(responseCode = "200", description = "Hello response",
         content = Array(new Content(schema = new Schema(implementation = classOf[Greeting])))),
       new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
@@ -45,9 +45,9 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
   @Operation(summary = "Return Hello greeting", description = "Return Hello greeting for named user",
     parameters = Array(new Parameter(name = "name", in = ParameterIn.PATH, description = "user name")),
     responses = Array(
-      new ApiResponse(responseCode = "200", description = "Add response"),
-      new ApiResponse(responseCode = "500", description = "Internal server error",
-        content = Array(new Content(schema = new Schema(implementation = classOf[Greeting])))))
+      new ApiResponse(responseCode = "200", description = "Hello response",
+        content = Array(new Content(schema = new Schema(implementation = classOf[Greeting])))),
+      new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
   def getHelloSegment =
     path("hello" / Segment) { name =>
