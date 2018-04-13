@@ -2,13 +2,10 @@ package com.example.akka.echoenum
 
 import javax.ws.rs.{GET, Path}
 
-import scala.annotation.meta.field
-
 import akka.http.scaladsl.server.Directives
 import com.example.akka.DefaultJsonFormats
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
-import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
@@ -17,8 +14,7 @@ import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 object EchoEnumService extends Directives with DefaultJsonFormats {
 
   case class EchoEnum(
-    @(Parameter @field)(required = true, schema =
-      new Schema(`type` = "string", allowableValues = Array("TALL", "GRANDE", "VENTI"))) enumValue: Enum.Value)
+    @Schema(required = true, `type` = "string", allowableValues = Array("TALL", "GRANDE", "VENTI")) enumValue: Enum.Value)
 
   implicit val enumFormat =
     new RootJsonFormat[Enum.Value] {
