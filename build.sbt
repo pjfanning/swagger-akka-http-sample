@@ -1,6 +1,6 @@
 name := "swagger-akka-http-sample"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.6"
 
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
