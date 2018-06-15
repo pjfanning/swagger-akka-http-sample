@@ -5,8 +5,8 @@ scalaVersion := "2.12.6"
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaVersion = "2.5.12"
-val akkaHttpVersion = "10.1.1"
+val akkaVersion = "2.5.13"
+val akkaHttpVersion = "10.1.2"
 
 libraryDependencies ++= Seq(
   "javax.ws.rs" % "javax.ws.rs-api" % "2.0.1",
