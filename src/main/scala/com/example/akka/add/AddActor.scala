@@ -1,13 +1,13 @@
 package com.example.akka.add
 
-import akka.actor.{Actor, ActorLogging}
+import akka.actor.Actor
 
 object AddActor {
   case class AddRequest(numbers: Array[Int])
   case class AddResponse(sum: Int)
 }
 
-class AddActor extends Actor with ActorLogging {
+class AddActor extends Actor {
   import AddActor._
 
   def receive: Receive = {
