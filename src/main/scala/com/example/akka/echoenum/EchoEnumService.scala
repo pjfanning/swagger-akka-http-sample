@@ -1,21 +1,20 @@
 package com.example.akka.echoenum
 
-import javax.ws.rs.Path
-
-import scala.annotation.meta.field
+import javax.ws.rs.{GET, Path}
 
 import akka.http.scaladsl.server.Directives
 import com.example.akka.DefaultJsonFormats
-import io.swagger.annotations._
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.{Content, Schema}
+import io.swagger.v3.oas.annotations.parameters.RequestBody
+import io.swagger.v3.oas.annotations.responses.ApiResponse
 import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 
-@Api(value = "/echoenum")
 @Path("/echoenum")
 object EchoEnumService extends Directives with DefaultJsonFormats {
 
   case class EchoEnum(
-    @(ApiModelProperty @field)(value = "Enum Value", dataType = "String",
-      allowableValues = "TALL,GRANDE,VENTI", required = true) enumValue: Enum.Value)
+    @Schema(required = true, `type` = "string", allowableValues = Array("TALL", "GRANDE", "VENTI")) enumValue: Enum.Value)
 
   implicit val enumFormat =
     new RootJsonFormat[Enum.Value] {
@@ -31,14 +30,14 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
 
   val route = echo
 
-  @ApiOperation(value = "Echo", nickname = "echoenum", httpMethod = "POST", response = classOf[EchoEnum])
-  @ApiImplicitParams(Array(
-    new ApiImplicitParam(name = "body", value = "enum value to echo", required = true,
-        dataTypeClass = classOf[EchoEnum], paramType = "body")
-  ))
-  @ApiResponses(Array(
-    new ApiResponse(code = 400, message = "Bad Request")
-  ))
+  @GET
+  @Operation(summary = "Echo Enum", description = "Echo Enum",
+    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
+    responses = Array(
+      new ApiResponse(responseCode = "200", description = "Echo Enum",
+        content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
+      new ApiResponse(responseCode = "400", description = "Bad Request"))
+  )
   def echo =
     path("echoenum") {
       post {

@@ -1,20 +1,21 @@
 package com.example.akka.addoption
 
-import javax.ws.rs.Path
-
-import scala.concurrent.ExecutionContext
-import scala.concurrent.duration._
+import javax.ws.rs.{POST, Path}
 
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
 import akka.pattern.ask
 import akka.util.Timeout
-import io.swagger.annotations._
-
 import com.example.akka.DefaultJsonFormats
 import com.example.akka.addoption.AddOptionActor._
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.media.{Content, Schema}
+import io.swagger.v3.oas.annotations.parameters.RequestBody
+import io.swagger.v3.oas.annotations.responses.ApiResponse
 
-@Api(value = "/add", produces = "application/json")
+import scala.concurrent.ExecutionContext
+import scala.concurrent.duration._
+
 @Path("/addOption")
 class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
@@ -26,14 +27,14 @@ class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionC
 
   val route = addOption
 
-  @ApiOperation(value = "Add integers", nickname = "addIntegers", httpMethod = "POST", response = classOf[AddOptionResponse])
-  @ApiImplicitParams(Array(
-    new ApiImplicitParam(name = "body", value = "\"numbers\" to sum", required = true,
-        dataTypeClass = classOf[AddOptionRequest], paramType = "body")
-  ))
-  @ApiResponses(Array(
-    new ApiResponse(code = 500, message = "Internal server error")
-  ))
+  @POST
+  @Operation(summary = "Add integers", description = "Add integers",
+    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionRequest])))),
+    responses = Array(
+      new ApiResponse(responseCode = "200", description = "Add response",
+        content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionResponse])))),
+      new ApiResponse(responseCode = "500", description = "Internal server error"))
+  )
   def addOption =
     path("addOption") {
       post {
