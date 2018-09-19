@@ -8,5 +8,4 @@ Test using http://petstore.swagger.io/ and replace the swagger.json with http://
 
 The Swagger UI can be used to send sample requests.
 
-Note that the sample now uses swagger-akka-http 0.11.0 which has some breaking [changes](https://github.com/swagger-akka-http/swagger-akka-http#breaking-changes-in-0100).
-
+[Swagger 1.5 (OpenAPI 3.0.1) version](https://github.com/pjfanning/swagger-akka-http-sample/tree/swagger-1.5)
