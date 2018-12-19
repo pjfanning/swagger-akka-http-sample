@@ -5,8 +5,8 @@ scalaVersion := "2.12.6"
 resolvers += Resolver.sonatypeRepo("releases")
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaVersion = "2.5.16"
-val akkaHttpVersion = "10.1.5"
+val akkaVersion = "2.5.19"
+val akkaHttpVersion = "10.1.6"
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.5.21",
