@@ -3,18 +3,17 @@ name := "swagger-akka-http-sample"
 scalaVersion := "2.13.0"
 
 resolvers += Resolver.sonatypeRepo("releases")
-resolvers += Resolver.sonatypeRepo("snapshots")
 
-val akkaVersion = "2.5.24"
+val akkaVersion = "2.5.25"
 val akkaHttpVersion = "10.1.9"
 val jacksonVersion = "2.9.9"
-val swaggerVersion = "2.0.8"
+val swaggerVersion = "2.0.9"
 
 libraryDependencies ++= Seq(
   "javax.ws.rs" % "javax.ws.rs-api" % "2.0.1",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.0.3",
   "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.0.4",
-  "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.9",
+  "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "io.swagger.core.v3" % "swagger-core" % swaggerVersion,
   "io.swagger.core.v3" % "swagger-annotations" % swaggerVersion,
   "io.swagger.core.v3" % "swagger-models" % swaggerVersion,
