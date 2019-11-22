@@ -6,7 +6,7 @@ resolvers += Resolver.sonatypeRepo("releases")
 
 val akkaVersion = "2.6.0"
 val akkaHttpVersion = "10.1.10"
-val jacksonVersion = "2.10.0"
+val jacksonVersion = "2.10.1"
 val swaggerVersion = "2.0.9"
 
 libraryDependencies ++= Seq(
@@ -24,5 +24,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
   "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "ch.megard" %% "akka-http-cors" % "0.4.1",
-  "org.slf4j" % "slf4j-simple" % "1.7.28"
+  "org.slf4j" % "slf4j-simple" % "1.7.29"
 )
