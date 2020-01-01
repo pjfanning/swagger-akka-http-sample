@@ -8,4 +8,4 @@ Test using http://petstore.swagger.io/ and replace the swagger.json with http://
 
 The Swagger UI can be used to send sample requests.
 
-[Swagger 1.5 version](https://github.com/pjfanning/swagger-akka-http-sample/tree/swagger-1.5)
+[Swagger 1.5/1.6 version](https://github.com/pjfanning/swagger-akka-http-sample/tree/swagger-1.5)
