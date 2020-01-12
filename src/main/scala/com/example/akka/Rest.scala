@@ -3,7 +3,6 @@ package com.example.akka
 import akka.actor.{ActorSystem, Props}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.RouteConcatenation
-import akka.stream.ActorMaterializer
 import ch.megard.akka.http.cors.scaladsl.CorsDirectives.cors
 import com.example.akka.add.{AddActor, AddService}
 import com.example.akka.addoption.{AddOptionActor, AddOptionService}
@@ -15,7 +14,6 @@ object Rest extends App with RouteConcatenation {
   implicit val system = ActorSystem("akka-http-sample")
   sys.addShutdownHook(system.terminate())
 
-  implicit val materializer = ActorMaterializer()
   implicit val executionContext = system.dispatcher
 
   val add = system.actorOf(Props[AddActor])
