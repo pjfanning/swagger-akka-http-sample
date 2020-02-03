@@ -2,10 +2,10 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.13.1"
 
-val akkaVersion = "2.6.1"
+val akkaVersion = "2.6.3"
 val akkaHttpVersion = "10.1.11"
-val jacksonVersion = "2.10.1"
-val swaggerVersion = "2.0.9"
+val jacksonVersion = "2.10.2"
+val swaggerVersion = "2.1.1"
 
 libraryDependencies ++= Seq(
   "javax.ws.rs" % "javax.ws.rs-api" % "2.0.1",
