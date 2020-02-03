@@ -1,9 +1,10 @@
 package com.example.akka.echoenum
 
 import javax.ws.rs.{GET, Path}
-
 import akka.http.scaladsl.server.Directives
 import com.example.akka.DefaultJsonFormats
+import com.fasterxml.jackson.core.`type`.TypeReference
+import com.fasterxml.jackson.module.scala.JsonScalaEnumeration
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
@@ -13,16 +14,18 @@ import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 @Path("/echoenum")
 object EchoEnumService extends Directives with DefaultJsonFormats {
 
-  case class EchoEnum(
-    @Schema(required = true, `type` = "string", allowableValues = Array("TALL", "GRANDE", "VENTI")) enumValue: Enum.Value)
+  //case class EchoEnum(@Schema(required = true, `type` = "string", allowableValues = Array("TALL", "GRANDE", "VENTI"))
+  //                    enumValue: SizeEnum.Value)
+  class SizeEnumTypeClass extends TypeReference[SizeEnum.type]
+  case class EchoEnum(@JsonScalaEnumeration(classOf[SizeEnumTypeClass]) enumValue: SizeEnum.Value)
 
   implicit val enumFormat =
-    new RootJsonFormat[Enum.Value] {
-      def write(obj: Enum.Value): JsValue = JsString(obj.toString)
-      def read(json: JsValue): Enum.Value = {
+    new RootJsonFormat[SizeEnum.Value] {
+      def write(obj: SizeEnum.Value): JsValue = JsString(obj.toString)
+      def read(json: JsValue): SizeEnum.Value = {
         json match {
-          case JsString(txt) => Enum.withName(txt)
-          case somethingElse => throw DeserializationException(s"Expected a value from enum $Enum instead of $somethingElse")
+          case JsString(txt) => SizeEnum.withName(txt)
+          case somethingElse => throw DeserializationException(s"Expected a value from enum $SizeEnum instead of $somethingElse")
         }
       }
     }

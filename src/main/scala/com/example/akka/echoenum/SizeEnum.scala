@@ -1,6 +1,6 @@
 package com.example.akka.echoenum
 
-case object Enum extends Enumeration(0) {
+case object SizeEnum extends Enumeration(0) {
   type Enum = Value
   val TALL = Value("TALL")
   val GRANDE = Value("GRANDE")
