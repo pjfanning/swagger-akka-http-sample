@@ -1,6 +1,6 @@
 package com.example.akka.hello
 
-import javax.ws.rs.{GET, POST, Path}
+import javax.ws.rs.{GET, Path}
 
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
@@ -41,7 +41,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
       }
     }
 
-  @POST
+  @GET
   @Operation(summary = "Return Hello greeting", description = "Return Hello greeting for named user",
     parameters = Array(new Parameter(name = "name", in = ParameterIn.PATH, description = "user name")),
     responses = Array(

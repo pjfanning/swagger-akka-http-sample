@@ -1,6 +1,5 @@
 package com.example.akka.echoenum
 
-import javax.ws.rs.{GET, Path}
 import akka.http.scaladsl.server.Directives
 import com.example.akka.DefaultJsonFormats
 import com.fasterxml.jackson.core.`type`.TypeReference
@@ -9,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
+import javax.ws.rs.{POST, Path}
 import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 
 @Path("/echoenum")
@@ -33,7 +33,7 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
 
   val route = echo
 
-  @GET
+  @POST
   @Operation(summary = "Echo Enum", description = "Echo Enum",
     requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
     responses = Array(
