@@ -7,13 +7,13 @@ val akkaHttpVersion = "10.1.12"
 val jacksonVersion = "2.11.0"
 val swaggerVersion = "2.1.1"
 
-resolvers += Resolver.sonatypeRepo("snapshots")
+//resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(
   "javax.ws.rs" % "javax.ws.rs-api" % "2.0.1",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.0.5",
   "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.1.0",
-  "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.0.0-SNAPSHOT",
+  "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.0.0",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "pl.iterators" %% "kebs-spray-json" % "1.7.1",
   "io.swagger.core.v3" % "swagger-core" % swaggerVersion,
