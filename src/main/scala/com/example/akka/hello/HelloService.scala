@@ -1,7 +1,6 @@
 package com.example.akka.hello
 
-import javax.ws.rs.{GET, Path}
-
+import javax.ws.rs.{GET, Path, Produces}
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
 import akka.pattern.ask
@@ -12,6 +11,7 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.{Operation, Parameter}
+import javax.ws.rs.core.MediaType
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -28,6 +28,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
     getHelloSegment
 
   @GET
+  @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Return Hello greeting (anonymous)", description = "Return Hello greeting for anonymous request",
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Hello response",
@@ -42,6 +43,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
     }
 
   @GET
+  @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Return Hello greeting", description = "Return Hello greeting for named user",
     parameters = Array(new Parameter(name = "name", in = ParameterIn.PATH, description = "user name")),
     responses = Array(

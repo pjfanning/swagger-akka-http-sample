@@ -8,7 +8,8 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
-import javax.ws.rs.{POST, Path}
+import javax.ws.rs.core.MediaType
+import javax.ws.rs.{Consumes, POST, Path, Produces}
 import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 
 @Path("/echoenum")
@@ -34,6 +35,8 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
   val route = echo
 
   @POST
+  @Consumes(Array(MediaType.APPLICATION_JSON))
+  @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Echo Enum", description = "Echo Enum",
     requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
     responses = Array(

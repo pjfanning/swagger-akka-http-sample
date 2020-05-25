@@ -1,7 +1,6 @@
 package com.example.akka.addoption
 
-import javax.ws.rs.{POST, Path}
-
+import javax.ws.rs.{Consumes, POST, Path, Produces}
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
 import akka.pattern.ask
@@ -12,6 +11,7 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
+import javax.ws.rs.core.MediaType
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration._
@@ -28,6 +28,8 @@ class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionC
   val route = addOption
 
   @POST
+  @Consumes(Array(MediaType.APPLICATION_JSON))
+  @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Add integers", description = "Add integers",
     requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionRequest])))),
     responses = Array(
