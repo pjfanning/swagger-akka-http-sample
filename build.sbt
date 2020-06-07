@@ -4,9 +4,9 @@ scalaVersion := "2.13.2"
 
 resolvers += Resolver.sonatypeRepo("releases")
 
-val akkaVersion = "2.6.4"
-val akkaHttpVersion = "10.1.11"
-val jacksonVersion = "2.10.3" //swagger-core 1.6.0 is incompatible with jackson 2.11.0
+val akkaVersion = "2.6.5"
+val akkaHttpVersion = "10.1.12"
+val jacksonVersion = "2.10.4" //swagger-core 1.6.0 is incompatible with jackson 2.11.0
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.6.0",
