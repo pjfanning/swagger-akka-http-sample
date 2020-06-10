@@ -2,9 +2,6 @@ package com.example.akka.add
 
 import javax.ws.rs.Path
 
-import scala.concurrent.ExecutionContext
-import scala.concurrent.duration._
-
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.Directives
 import akka.pattern.ask
@@ -13,6 +10,9 @@ import io.swagger.annotations._
 
 import com.example.akka.DefaultJsonFormats
 import com.example.akka.add.AddActor._
+
+import scala.concurrent.ExecutionContext
+import scala.concurrent.duration.DurationInt
 
 @Api(value = "/add", produces = "application/json")
 @Path("/add")
