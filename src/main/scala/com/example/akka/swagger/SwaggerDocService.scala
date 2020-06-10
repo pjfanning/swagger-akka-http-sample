@@ -6,12 +6,13 @@ import com.example.akka.add.AddService
 import com.example.akka.addoption.AddOptionService
 import com.example.akka.echoenum.EchoEnumService
 import com.example.akka.echoenumeratum.EchoEnumeratumService
+import com.example.akka.echolist.EchoListService
 import com.example.akka.hello.HelloService
 import io.swagger.v3.oas.models.ExternalDocumentation
 
 object SwaggerDocService extends SwaggerHttpService {
   override val apiClasses = Set(classOf[AddService], classOf[AddOptionService], classOf[HelloService],
-    EchoEnumService.getClass, EchoEnumeratumService.getClass)
+    EchoEnumService.getClass, EchoEnumeratumService.getClass, EchoListService.getClass)
   override val host = "localhost:12345"
   override val info = Info(version = "1.0")
   override val externalDocs = Some(new ExternalDocumentation().description("Core Docs").url("http://acme.com/docs"))

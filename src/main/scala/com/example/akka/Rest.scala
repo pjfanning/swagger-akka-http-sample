@@ -8,6 +8,7 @@ import com.example.akka.add.{AddActor, AddService}
 import com.example.akka.addoption.{AddOptionActor, AddOptionService}
 import com.example.akka.echoenum.EchoEnumService
 import com.example.akka.echoenumeratum.EchoEnumeratumService
+import com.example.akka.echolist.EchoListService
 import com.example.akka.hello.{HelloActor, HelloService}
 import com.example.akka.swagger.SwaggerDocService
 
@@ -26,6 +27,7 @@ object Rest extends App with RouteConcatenation {
       new HelloService(hello).route ~
       EchoEnumService.route ~
       EchoEnumeratumService.route ~
+      EchoListService.route ~
       SwaggerDocService.routes)
   Http().bindAndHandle(routes, "0.0.0.0", 12345)
 }

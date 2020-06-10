@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import javax.ws.rs.core.MediaType
 
 import scala.concurrent.ExecutionContext
-import scala.concurrent.duration._
+import scala.concurrent.duration.DurationInt
 
 @Path("/addOption")
 class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionContext)
