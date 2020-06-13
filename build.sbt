@@ -4,7 +4,7 @@ scalaVersion := "2.13.2"
 
 val akkaVersion = "2.6.6"
 val akkaHttpVersion = "10.1.12"
-val jacksonVersion = "2.10.4" //swagger-core 1.6.1 is incompatible with jackson 2.11.0
+val jacksonVersion = "2.10.2" //swagger-core 1.6.1 is incompatible with jackson 2.11.0 - see also https://github.com/swagger-akka-http/swagger-akka-http/issues/171
 
 libraryDependencies ++= Seq(
   "io.swagger" % "swagger-jaxrs" % "1.6.1",
