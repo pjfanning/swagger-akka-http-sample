@@ -1,6 +1,6 @@
 package com.example.akka.echolist
 
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 import com.example.akka.DefaultJsonFormats
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
@@ -9,15 +9,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{Consumes, POST, Path, Produces}
 import pl.iterators.kebs.json.KebsSpray
+import spray.json.RootJsonFormat
 
 @Path("/echolist")
 object EchoListService extends Directives with DefaultJsonFormats with KebsSpray {
 
   case class EchoList(listName: String, values: Seq[String])
 
-  implicit val echoListFormat = jsonFormatN[EchoList]
+  implicit val echoListFormat: RootJsonFormat[EchoList] = jsonFormatN[EchoList]
 
-  val route = echo
+  val route: Route = echo
 
   @POST
   @Consumes(Array(MediaType.APPLICATION_JSON))
@@ -29,7 +30,7 @@ object EchoListService extends Directives with DefaultJsonFormats with KebsSpray
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoList])))),
       new ApiResponse(responseCode = "400", description = "Bad Request"))
   )
-  def echo =
+  def echo: Route =
     path("echolist") {
       post {
         entity(as[EchoList]) { request =>

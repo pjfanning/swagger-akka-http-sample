@@ -12,11 +12,13 @@ import com.example.akka.echolist.EchoListService
 import com.example.akka.hello.{HelloActor, HelloService}
 import com.example.akka.swagger.SwaggerDocService
 
+import scala.concurrent.ExecutionContextExecutor
+
 object Rest extends App with RouteConcatenation {
-  implicit val system = ActorSystem("akka-http-sample")
+  implicit val system: ActorSystem = ActorSystem("akka-http-sample")
   sys.addShutdownHook(system.terminate())
 
-  implicit val executionContext = system.dispatcher
+  implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
   val add = system.actorOf(Props[AddActor])
   val addOption = system.actorOf(Props[AddOptionActor])

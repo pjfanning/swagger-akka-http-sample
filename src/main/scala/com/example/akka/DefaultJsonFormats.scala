@@ -19,7 +19,7 @@ trait DefaultJsonFormats extends DefaultJsonProtocol with SprayJsonSupport {
    * Computes ``RootJsonFormat`` for type ``A`` if ``A`` is object
    */
   def jsonObjectFormat[A : ClassTag]: RootJsonFormat[A] = new RootJsonFormat[A] {
-    val ct = implicitly[ClassTag[A]]
+    val ct: ClassTag[A] = implicitly[ClassTag[A]]
 
     def write(obj: A): JsValue = JsObject("value" -> JsString(ct.runtimeClass.getSimpleName))
 
