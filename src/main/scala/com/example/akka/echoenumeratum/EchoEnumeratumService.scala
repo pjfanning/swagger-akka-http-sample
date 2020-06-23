@@ -1,7 +1,7 @@
 package com.example.akka.echoenumeratum
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{Consumes, POST, Path, Produces}
 import pl.iterators.kebs.json.{KebsEnumFormats, KebsSpray}
-import spray.json.DefaultJsonProtocol
+import spray.json.{DefaultJsonProtocol, RootJsonFormat}
 
 @Path("/echoenumeratum")
 object EchoEnumeratumService extends Directives with SprayJsonSupport with DefaultJsonProtocol
@@ -17,9 +17,9 @@ object EchoEnumeratumService extends Directives with SprayJsonSupport with Defau
 
   case class EchoEnumeratum(enumValue: SizeEnum)
 
-  implicit val echoEnumeratumFormat = jsonFormatN[EchoEnumeratum]
+  implicit val echoEnumeratumFormat: RootJsonFormat[EchoEnumeratum] = jsonFormatN[EchoEnumeratum]
 
-  val route = echo
+  val route: Route = echo
 
   @POST
   @Consumes(Array(MediaType.APPLICATION_JSON))
@@ -31,7 +31,7 @@ object EchoEnumeratumService extends Directives with SprayJsonSupport with Defau
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnumeratum])))),
       new ApiResponse(responseCode = "400", description = "Bad Request"))
   )
-  def echo =
+  def echo: Route =
     path("echoenumeratum") {
       post {
         entity(as[EchoEnumeratum]) { request =>

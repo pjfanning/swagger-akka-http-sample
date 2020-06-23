@@ -1,6 +1,6 @@
 package com.example.akka.echoenum
 
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 import com.example.akka.DefaultJsonFormats
 import com.fasterxml.jackson.core.`type`.TypeReference
 import com.fasterxml.jackson.module.scala.JsonScalaEnumeration
@@ -20,7 +20,7 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
   class SizeEnumTypeClass extends TypeReference[SizeEnum.type]
   case class EchoEnum(@JsonScalaEnumeration(classOf[SizeEnumTypeClass]) enumValue: SizeEnum.Value)
 
-  implicit val enumFormat =
+  implicit val enumFormat: RootJsonFormat[SizeEnum.Value] =
     new RootJsonFormat[SizeEnum.Value] {
       def write(obj: SizeEnum.Value): JsValue = JsString(obj.toString)
       def read(json: JsValue): SizeEnum.Value = {
@@ -30,9 +30,9 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
         }
       }
     }
-  implicit val echoEnumFormat = jsonFormat1(EchoEnum)
+  implicit val echoEnumFormat: RootJsonFormat[EchoEnum] = jsonFormat1(EchoEnum)
 
-  val route = echo
+  val route: Route = echo
 
   @POST
   @Consumes(Array(MediaType.APPLICATION_JSON))
@@ -44,7 +44,7 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
       new ApiResponse(responseCode = "400", description = "Bad Request"))
   )
-  def echo =
+  def echo: Route =
     path("echoenum") {
       post {
         entity(as[EchoEnum]) { request =>
