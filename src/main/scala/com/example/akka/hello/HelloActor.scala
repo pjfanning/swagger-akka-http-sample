@@ -12,7 +12,7 @@ class HelloActor extends Actor with ActorLogging {
   import HelloActor._
 
   def receive: Receive = {
-    case AnonymousHello => { sender ! Greeting("Hello") }
+    case AnonymousHello => sender ! Greeting("Hello")
     case Hello(name) => sender ! Greeting(s"Hello, $name")
   }
 }

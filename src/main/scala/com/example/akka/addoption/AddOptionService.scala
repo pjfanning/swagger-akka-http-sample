@@ -2,7 +2,7 @@ package com.example.akka.addoption
 
 import javax.ws.rs.{Consumes, POST, Path, Produces}
 import akka.actor.ActorRef
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 import akka.pattern.ask
 import akka.util.Timeout
 import com.example.akka.DefaultJsonFormats
@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import javax.ws.rs.core.MediaType
+import spray.json.RootJsonFormat
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration.DurationInt
@@ -20,12 +21,12 @@ import scala.concurrent.duration.DurationInt
 class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
 
-  implicit val timeout = Timeout(2.seconds)
+  implicit val timeout: Timeout = Timeout(2.seconds)
 
-  implicit val requestFormat = jsonFormat2(AddOptionRequest)
-  implicit val responseFormat = jsonFormat1(AddOptionResponse)
+  implicit val requestFormat: RootJsonFormat[AddOptionRequest] = jsonFormat2(AddOptionRequest)
+  implicit val responseFormat: RootJsonFormat[AddOptionResponse] = jsonFormat1(AddOptionResponse)
 
-  val route = addOption
+  val route: Route = addOption
 
   @POST
   @Consumes(Array(MediaType.APPLICATION_JSON))
@@ -37,7 +38,7 @@ class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionC
         content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionResponse])))),
       new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
-  def addOption =
+  def addOption: Route =
     path("addOption") {
       post {
         entity(as[AddOptionRequest]) { request =>

@@ -2,7 +2,7 @@ package com.example.akka.hello
 
 import javax.ws.rs.{GET, Path, Produces}
 import akka.actor.ActorRef
-import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.{Directives, Route}
 import akka.pattern.ask
 import akka.util.Timeout
 import com.example.akka.DefaultJsonFormats
@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.{Operation, Parameter}
 import javax.ws.rs.core.MediaType
+import spray.json.RootJsonFormat
 
 import scala.concurrent.ExecutionContext
 import scala.concurrent.duration.DurationInt
@@ -20,10 +21,10 @@ import scala.concurrent.duration.DurationInt
 class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
   extends Directives with DefaultJsonFormats {
 
-  implicit val timeout = Timeout(2.seconds)
-  implicit val greetingFormat = jsonFormat1(Greeting)
+  implicit val timeout: Timeout = Timeout(2.seconds)
+  implicit val greetingFormat: RootJsonFormat[Greeting] = jsonFormat1(Greeting)
 
-  val route =
+  val route: Route =
     getHello ~
     getHelloSegment
 
@@ -35,7 +36,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
         content = Array(new Content(schema = new Schema(implementation = classOf[Greeting])))),
       new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
-  def getHello =
+  def getHello: Route =
     path("hello") {
       get {
         complete { (hello ? AnonymousHello).mapTo[Greeting] }
@@ -51,7 +52,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
         content = Array(new Content(schema = new Schema(implementation = classOf[Greeting])))),
       new ApiResponse(responseCode = "500", description = "Internal server error"))
   )
-  def getHelloSegment =
+  def getHelloSegment: Route =
     path("hello" / Segment) { name =>
       get {
         complete { (hello ? Hello(name)).mapTo[Greeting] }
