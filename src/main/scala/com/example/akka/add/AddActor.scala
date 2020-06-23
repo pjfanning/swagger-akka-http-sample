@@ -11,6 +11,6 @@ class AddActor extends Actor {
   import AddActor._
 
   def receive: Receive = {
-    case request: AddRequest => { sender ! AddResponse(request.numbers.reduce(_ + _)) }
+    case request: AddRequest => sender ! AddResponse(request.numbers.reduce(_ + _))
   }
 }
