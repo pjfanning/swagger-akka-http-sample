@@ -1,13 +1,13 @@
 name := "swagger-akka-http-sample"
 
-scalaVersion := "2.13.2"
+scalaVersion := "2.13.3"
 
-val akkaVersion = "2.6.6"
+val akkaVersion = "2.6.7"
 val akkaHttpVersion = "10.1.12"
-val jacksonVersion = "2.10.4" //swagger-core 1.6.1 is incompatible with jackson 2.11.0
+val jacksonVersion = "2.11.1"
 
 libraryDependencies ++= Seq(
-  "io.swagger" % "swagger-jaxrs" % "1.6.1",
+  "io.swagger" % "swagger-jaxrs" % "1.6.2",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "1.1.2",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
