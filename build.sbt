@@ -4,7 +4,7 @@ scalaVersion := "2.13.4"
 
 val akkaVersion = "2.6.10"
 val akkaHttpVersion = "10.2.2"
-val jacksonVersion = "2.12.0"
+val jacksonVersion = "2.12.1"
 val swaggerVersion = "2.1.6"
 
 //resolvers += Resolver.sonatypeRepo("snapshots")
