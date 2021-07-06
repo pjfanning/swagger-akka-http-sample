@@ -1,11 +1,11 @@
 name := "swagger-akka-http-sample"
 
-scalaVersion := "2.13.5"
+scalaVersion := "2.13.6"
 
-val akkaVersion = "2.6.14"
+val akkaVersion = "2.6.15"
 val akkaHttpVersion = "10.2.4"
-val jacksonVersion = "2.12.3"
-val swaggerVersion = "2.1.9"
+val jacksonVersion = "2.12.4"
+val swaggerVersion = "2.1.10"
 
 //resolvers += Resolver.sonatypeRepo("snapshots")
 
@@ -26,5 +26,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
   "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "ch.megard" %% "akka-http-cors" % "1.1.1",
-  "org.slf4j" % "slf4j-simple" % "1.7.30"
+  "org.slf4j" % "slf4j-simple" % "1.7.31"
 )
