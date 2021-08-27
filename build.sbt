@@ -2,16 +2,16 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.13.6"
 
-val akkaVersion = "2.6.15"
+val akkaVersion = "2.6.16"
 val akkaHttpVersion = "10.2.6"
-val jacksonVersion = "2.12.4"
+val jacksonVersion = "2.12.5"
 val swaggerVersion = "2.1.10"
 
 //resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies ++= Seq(
   "javax.ws.rs" % "javax.ws.rs-api" % "2.1.1",
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.4.2",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.5.0",
   "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.3.1",
   "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.1.1",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
