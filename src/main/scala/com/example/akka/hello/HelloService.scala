@@ -44,6 +44,7 @@ class HelloService(hello: ActorRef)(implicit executionContext: ExecutionContext)
     }
 
   @GET
+  @Path("{name}") //the token inside the curly brackets should match the parameter name in the @Operation annotation
   @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Return Hello greeting", description = "Return Hello greeting for named user",
     parameters = Array(new Parameter(name = "name", in = ParameterIn.PATH, description = "user name")),
