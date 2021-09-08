@@ -25,7 +25,8 @@ object EchoEnumeratumService extends Directives with SprayJsonSupport with Defau
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Echo Enumeratum", description = "Echo Enumeratum",
-    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnumeratum])))),
+    requestBody = new RequestBody(required = true,
+      content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnumeratum])))),
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Echo Enumeratum",
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnumeratum])))),

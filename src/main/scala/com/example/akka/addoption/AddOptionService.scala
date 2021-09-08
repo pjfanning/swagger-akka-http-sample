@@ -32,7 +32,8 @@ class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionC
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Add integers", description = "Add integers",
-    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionRequest])))),
+    requestBody = new RequestBody(required = true,
+      content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionRequest])))),
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Add response",
         content = Array(new Content(schema = new Schema(implementation = classOf[AddOptionResponse])))),

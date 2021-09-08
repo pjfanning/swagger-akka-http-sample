@@ -24,7 +24,8 @@ object EchoListService extends Directives with DefaultJsonFormats with KebsSpray
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Echo List", description = "Echo List",
-    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoList])))),
+    requestBody = new RequestBody(required = true,
+      content = Array(new Content(schema = new Schema(implementation = classOf[EchoList])))),
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Echo List",
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoList])))),

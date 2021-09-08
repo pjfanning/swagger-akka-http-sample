@@ -38,7 +38,8 @@ object EchoEnumService extends Directives with DefaultJsonFormats {
   @Consumes(Array(MediaType.APPLICATION_JSON))
   @Produces(Array(MediaType.APPLICATION_JSON))
   @Operation(summary = "Echo Enum", description = "Echo Enum",
-    requestBody = new RequestBody(content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
+    requestBody = new RequestBody(required = true,
+      content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
     responses = Array(
       new ApiResponse(responseCode = "200", description = "Echo Enum",
         content = Array(new Content(schema = new Schema(implementation = classOf[EchoEnum])))),
