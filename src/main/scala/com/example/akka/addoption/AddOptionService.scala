@@ -26,7 +26,7 @@ class AddOptionService(addActor: ActorRef)(implicit executionContext: ExecutionC
 
   val route = addOption
 
-  @ApiOperation(value = "Add integers", nickname = "addIntegers", httpMethod = "POST", response = classOf[AddOptionResponse])
+  @ApiOperation(value = "Add optional integers", nickname = "addOptionalIntegers", httpMethod = "POST", response = classOf[AddOptionResponse])
   @ApiImplicitParams(Array(
     new ApiImplicitParam(name = "body", value = "\"numbers\" to sum", required = true,
         dataTypeClass = classOf[AddOptionRequest], paramType = "body")
