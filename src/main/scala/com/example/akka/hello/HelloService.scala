@@ -1,6 +1,5 @@
 package com.example.akka.hello
 
-import javax.ws.rs.{GET, Path, Produces}
 import akka.actor.ActorRef
 import akka.http.scaladsl.server.{Directives, Route}
 import akka.pattern.ask
@@ -11,7 +10,8 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.responses.ApiResponse
 import io.swagger.v3.oas.annotations.{Operation, Parameter}
-import javax.ws.rs.core.MediaType
+import jakarta.ws.rs.core.MediaType
+import jakarta.ws.rs.{GET, Path, Produces}
 import spray.json.RootJsonFormat
 
 import scala.concurrent.ExecutionContext

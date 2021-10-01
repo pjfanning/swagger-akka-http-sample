@@ -8,8 +8,8 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.{Content, Schema}
 import io.swagger.v3.oas.annotations.parameters.RequestBody
 import io.swagger.v3.oas.annotations.responses.ApiResponse
-import javax.ws.rs.core.MediaType
-import javax.ws.rs.{Consumes, POST, Path, Produces}
+import jakarta.ws.rs.core.MediaType
+import jakarta.ws.rs.{Consumes, POST, Path, Produces}
 import spray.json.{DeserializationException, JsString, JsValue, RootJsonFormat}
 
 @Path("/echoenum")
