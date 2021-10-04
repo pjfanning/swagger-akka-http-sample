@@ -23,6 +23,7 @@ object Rest extends App with RouteConcatenation {
   val add = system.actorOf(Props[AddActor])
   val addOption = system.actorOf(Props[AddOptionActor])
   val hello = system.actorOf(Props[HelloActor])
+
   val routes =
     cors() (new AddService(add).route ~
       new AddOptionService(addOption).route ~
