@@ -10,7 +10,12 @@ import com.example.akka.echolist.EchoListService
 import com.example.akka.hello.HelloService
 import io.swagger.v3.oas.models.ExternalDocumentation
 
-object SwaggerDocService extends SwaggerHttpService {
+/**
+ * Sample SwaggerDocService, replace values with those applicable your application.
+ * By default, a swagger UI is made available too on the default routes. If you don't need the UI, or want
+ * to load the UI in another way, replace [[SwaggerHttpWithUiService]] with [[com.github.swagger.akka.SwaggerHttpService]]
+ */
+object SwaggerDocService extends SwaggerHttpWithUiService {
   override val apiClasses = Set(classOf[AddService], classOf[AddOptionService], classOf[HelloService],
     EchoEnumService.getClass, EchoEnumeratumService.getClass, EchoListService.getClass)
   override val host = "localhost:12345"
