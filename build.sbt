@@ -27,8 +27,7 @@ val swaggerUIDependencies = Seq(
   "org.webjars" % "swagger-ui" % "3.50.0",
 )
 
-libraryDependencies ++=
-  Seq(
+libraryDependencies ++= Seq(
   "pl.iterators" %% "kebs-spray-json" % "1.9.3",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
@@ -37,5 +36,4 @@ libraryDependencies ++=
   "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "ch.megard" %% "akka-http-cors" % "1.1.2",
   "org.slf4j" % "slf4j-simple" % "1.7.32"
-)  ++ swaggerDependencies ++ swaggerUIDependencies
-
+) ++ swaggerDependencies ++ swaggerUIDependencies
