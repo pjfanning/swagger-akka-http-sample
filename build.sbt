@@ -2,7 +2,7 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.13.6"
 
-val akkaVersion = "2.6.16"
+val akkaVersion = "2.6.17"
 val akkaHttpVersion = "10.2.6"
 val jacksonVersion = "2.13.0"
 val swaggerVersion = "2.1.11"
