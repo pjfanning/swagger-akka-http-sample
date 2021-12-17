@@ -24,7 +24,7 @@ val swaggerDependencies = Seq(
  */
 val swaggerUIDependencies = Seq(
   "org.webjars" % "webjars-locator" % "0.42",
-  "org.webjars" % "swagger-ui" % "3.52.5",
+  "org.webjars" % "swagger-ui" % "4.1.3",
 )
 
 libraryDependencies ++= Seq(
