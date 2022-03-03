@@ -12,7 +12,8 @@ import com.example.akka.echolist.EchoListService
 import com.example.akka.hello.{HelloActor, HelloService}
 import com.example.akka.swagger.SwaggerDocService
 
-import scala.concurrent.ExecutionContextExecutor
+import scala.concurrent.duration.Duration
+import scala.concurrent.{Await, ExecutionContextExecutor, Future}
 
 object Rest extends App with RouteConcatenation {
   implicit val system: ActorSystem = ActorSystem("akka-http-sample")
@@ -32,5 +33,11 @@ object Rest extends App with RouteConcatenation {
       EchoEnumeratumService.route ~
       EchoListService.route ~
       SwaggerDocService.routes)
-  Http().bindAndHandle(routes, "0.0.0.0", 12345)
+
+  val f = for {
+    bindingFuture <- Http().newServerAt("0.0.0.0", 12345).bind(routes)
+    waitOnFuture  <- Future.never
+  } yield waitOnFuture
+
+  Await.ready(f, Duration.Inf)
 }

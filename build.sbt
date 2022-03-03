@@ -5,7 +5,7 @@ scalaVersion := "2.13.8"
 val akkaVersion = "2.6.18"
 val akkaHttpVersion = "10.2.9"
 val jacksonVersion = "2.13.1"
-val swaggerVersion = "2.1.12"
+val swaggerVersion = "2.1.13"
 
 //resolvers += Resolver.sonatypeRepo("snapshots")
 
@@ -23,12 +23,12 @@ val swaggerDependencies = Seq(
  * See also SwaggerDocService
  */
 val swaggerUIDependencies = Seq(
-  "org.webjars" % "webjars-locator" % "0.42",
-  "org.webjars" % "swagger-ui" % "4.1.3",
+  "org.webjars" % "webjars-locator" % "0.45",
+  "org.webjars" % "swagger-ui" % "4.5.2",
 )
 
 libraryDependencies ++= Seq(
-  "pl.iterators" %% "kebs-spray-json" % "1.9.3",
+  "pl.iterators" %% "kebs-spray-json" % "1.9.4",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
