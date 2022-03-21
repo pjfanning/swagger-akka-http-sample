@@ -2,7 +2,7 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.13.8"
 
-val akkaVersion = "2.6.18"
+val akkaVersion = "2.6.19"
 val akkaHttpVersion = "10.2.9"
 val jacksonVersion = "2.13.2"
 val swaggerVersion = "2.1.13"
@@ -24,7 +24,7 @@ val swaggerDependencies = Seq(
  */
 val swaggerUIDependencies = Seq(
   "org.webjars" % "webjars-locator" % "0.45",
-  "org.webjars" % "swagger-ui" % "4.5.2",
+  "org.webjars" % "swagger-ui" % "4.6.2",
 )
 
 libraryDependencies ++= Seq(
