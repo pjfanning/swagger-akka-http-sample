@@ -65,7 +65,7 @@ trait SwaggerHttpWithUiService extends SwaggerHttpService {
       val url = classLoader.getResource(fullPath)
       /**
        * Since the index.html from Swagger is relatively simple, we can get away with regular expressions.
-       * I wouldn't use regexp  for any generic html content.
+       * I wouldn't use regexp for any generic html content.
        */
       val content = Source.fromURL(url).mkString
         .replaceFirst("https://petstore.swagger.io/v2/swagger.json", s"/${apiDocsPath}/swagger.json") // Update url to the swagger file
