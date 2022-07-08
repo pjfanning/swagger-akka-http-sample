@@ -5,6 +5,7 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.server.RouteConcatenation
 import ch.megard.akka.http.cors.scaladsl.CorsDirectives.cors
 import com.example.akka.add.{AddActor, AddService}
+import com.example.akka.addduration.{AddDurationActor, AddDurationService}
 import com.example.akka.addoption.{AddOptionActor, AddOptionService}
 import com.example.akka.echoenum.EchoEnumService
 import com.example.akka.echoenumeratum.EchoEnumeratumService
@@ -23,11 +24,13 @@ object Rest extends App with RouteConcatenation {
 
   val add = system.actorOf(Props[AddActor])
   val addOption = system.actorOf(Props[AddOptionActor])
+  val addDuration = system.actorOf(Props[AddDurationActor])
   val hello = system.actorOf(Props[HelloActor])
 
   val routes =
     cors() (new AddService(add).route ~
       new AddOptionService(addOption).route ~
+      new AddDurationService(addDuration).route ~
       new HelloService(hello).route ~
       EchoEnumService.route ~
       EchoEnumeratumService.route ~
