@@ -4,11 +4,13 @@ import akka.actor.Actor
 import io.swagger.v3.oas.annotations.media.Schema
 
 object AddOptionActor {
-  // due to type erasure of inner types for scala.Option[T] when T is a primitive type like Int,
-  // the only way to ensure generated swagger doc has int type for number2 is to use an annotation
-  case class AddOptionRequest(number: Int,
-                              @Schema(required = false, implementation = classOf[Int]) number2: Option[Int] = None)
-  //case class AddOptionRequest(number: Int, number2: Option[Int] = None)
+  // prior to swagger-scala-module v2.7.2, due to type erasure of inner types for scala.Option[T]
+  // when T is a primitive type like Int, the only way to ensure generated swagger doc had int type for number2
+  // was to use an annotation
+  case class AddOptionRequest2(number: Int,
+                               @Schema(required = false, implementation = classOf[Int]) number2: Option[Int] = None)
+  // since swagger-scala-module v2.7.2, the annotation is not needed
+  case class AddOptionRequest(number: Int, number2: Option[Int] = None)
   case class AddOptionResponse(sum: Int)
 }
 
