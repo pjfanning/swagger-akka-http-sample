@@ -12,7 +12,7 @@ val swaggerVersion = "2.2.2"
 val swaggerDependencies = Seq(
   "jakarta.ws.rs" % "jakarta.ws.rs-api" % "3.0.0",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.8.0",
-  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.7.2",
+  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.7.3",
   "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.4.0",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "io.swagger.core.v3" % "swagger-jaxrs2-jakarta" % swaggerVersion
