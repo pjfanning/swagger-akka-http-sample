@@ -2,9 +2,9 @@ name := "swagger-akka-http-sample"
 
 scalaVersion := "2.13.8"
 
-val akkaVersion = "2.6.19"
+val akkaVersion = "2.6.20"
 val akkaHttpVersion = "10.2.10"
-val jacksonVersion = "2.13.3"
+val jacksonVersion = "2.13.4"
 val swaggerVersion = "2.2.2"
 
 //resolvers ++= Resolver.sonatypeOssRepos("snapshots")
