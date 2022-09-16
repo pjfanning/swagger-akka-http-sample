@@ -8,11 +8,12 @@ val jacksonVersion = "2.13.4"
 val swaggerVersion = "2.2.2"
 
 //resolvers ++= Resolver.sonatypeOssRepos("snapshots")
+resolvers += "Local Maven Repository" at Path.userHome.asFile.toURI.toURL + ".m2/repository"
 
 val swaggerDependencies = Seq(
   "jakarta.ws.rs" % "jakarta.ws.rs-api" % "3.0.0",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.8.0",
-  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.7.4",
+  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.7.4+28-46f2f99e-SNAPSHOT",
   "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.4.0",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "io.swagger.core.v3" % "swagger-jaxrs2-jakarta" % swaggerVersion
