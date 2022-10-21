@@ -19,7 +19,7 @@ val swaggerDependencies = Seq(
 )
 
 libraryDependencies ++= Seq(
-  "pl.iterators" %% "kebs-spray-json" % "1.9.4",
+  "pl.iterators" %% "kebs-spray-json" % "1.9.5",
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
