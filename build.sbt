@@ -5,15 +5,15 @@ scalaVersion := "2.13.10"
 val akkaVersion = "2.6.20"
 val akkaHttpVersion = "10.2.10"
 val jacksonVersion = "2.14.0"
-val swaggerVersion = "2.2.6"
+val swaggerVersion = "2.2.4"
 
 //resolvers ++= Resolver.sonatypeOssRepos("snapshots")
 
 val swaggerDependencies = Seq(
   "jakarta.ws.rs" % "jakarta.ws.rs-api" % "3.0.0",
-  "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.8.0",
-  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.7.9",
-  "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.4.2",
+  "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.9.0",
+  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.8.0",
+  "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.5.0",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "io.swagger.core.v3" % "swagger-jaxrs2-jakarta" % swaggerVersion
 )
