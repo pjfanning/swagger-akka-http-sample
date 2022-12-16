@@ -12,7 +12,7 @@ val swaggerVersion = "2.2.7"
 val swaggerDependencies = Seq(
   "jakarta.ws.rs" % "jakarta.ws.rs-api" % "3.0.0",
   "com.github.swagger-akka-http" %% "swagger-akka-http" % "2.9.1",
-  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.8.2",
+  "com.github.swagger-akka-http" %% "swagger-scala-module" % "2.9.0",
   "com.github.swagger-akka-http" %% "swagger-enumeratum-module" % "2.5.0",
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % jacksonVersion,
   "io.swagger.core.v3" % "swagger-jaxrs2-jakarta" % swaggerVersion
@@ -26,5 +26,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream" % akkaVersion,
   "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "ch.megard" %% "akka-http-cors" % "1.1.3",
-  "org.slf4j" % "slf4j-simple" % "2.0.5"
+  "org.slf4j" % "slf4j-simple" % "2.0.6"
 ) ++ swaggerDependencies
