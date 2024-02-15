@@ -1,6 +1,6 @@
 # swagger-akka-http-sample
 
-Clone this git repo and use `sbt run` to start the Akka Http server.
+Check out this git repo and use `sbt run` to start the Akka Http server.
 
 Uses [swagger-akka-http](https://github.com/swagger-akka-http/swagger-akka-http) which is built using [swagger.io](http://swagger.io/) libs.   
 
